@@ -1,9 +1,6 @@
-
 # Built files
 *.class
 *.jar
-*.war
-*.ear
 *.apk
 *.aar
 
@@ -13,6 +10,9 @@
 /local.properties
 /.idea/
 *.iml
+*.log
 
 # Kotlin
 app/build/
+.gradle/
+build/
