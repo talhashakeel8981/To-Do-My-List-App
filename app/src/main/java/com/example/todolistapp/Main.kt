@@ -97,7 +97,7 @@ fun DetailScreen(navController: NavController, title: String?, description: Stri
         }
     }
 }
-
+//S
 
 
 
