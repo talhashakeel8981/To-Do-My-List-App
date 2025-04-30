@@ -10,7 +10,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 
-//ssdddhhhhhhh
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,28 +18,26 @@ class MainActivity : ComponentActivity() {
             val navController = rememberNavController()
 
             NavHost(navController = navController, startDestination = "home") {
-
                 composable("home") {
                     HomeScreen(navController)
                 }
-
                 composable("add") {
                     AddTaskScreen(navController)
                 }
-
                 composable(
-                    route = "detail/{title}/{desc}",
-
+                    "detail/{title}/{desc}",
                     arguments = listOf(
                         navArgument("title") { type = NavType.StringType },
                         navArgument("desc") { type = NavType.StringType }
                     )
                 ) { backStackEntry ->
-                    val title = backStackEntry.arguments?.getString("title") ?: ""
-                    val desc = backStackEntry.arguments?.getString("desc") ?: ""
-                    DetailScreen(title, desc)
+                    val title = backStackEntry.arguments?.getString("title")
+                    val desc = backStackEntry.arguments?.getString("desc")
+                    DetailScreen(navController, title, desc)
                 }
             }
         }
     }
 }
+
+
