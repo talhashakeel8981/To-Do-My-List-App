@@ -68,7 +68,7 @@ fun HomeScreen(navController: NavController, tasks: List<Task>) {
             } else {
                 LazyColumn {
                     items(tasks.size) { index ->
-                        val task = tasks[index]
+                        val task  = tasks[index]
                         Column(
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -95,8 +95,8 @@ fun HomeScreen(navController: NavController, tasks: List<Task>) {
 
 @Composable
 fun AddTaskScreen(navController: NavController, onSave: (String, String) -> Unit) {
-    var title by remember { mutableStateOf("") }
-    var desc by remember { mutableStateOf("") }
+    var title by rememberSaveable { mutableStateOf("") }
+    var desc by rememberSaveable { mutableStateOf("") }
 
     Column(modifier = Modifier
         .padding(16.dp)

@@ -15,6 +15,7 @@ import com.example.todomylistapp.ui.theme.ToDoMyListAppTheme
 
 
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
 import androidx.navigation.compose.rememberNavController
@@ -27,6 +28,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
+
             val tasks = remember { mutableStateListOf<Task>() }
 
             NavHost(navController = navController, startDestination = "home") {
