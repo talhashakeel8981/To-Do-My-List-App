@@ -3,26 +3,29 @@ package com.example.todolistapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.navigation.NavType
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
+import androidx.navigation.compose.*
 import androidx.navigation.navArgument
-
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
+            val tasks = remember { mutableStateListOf<Task>() }
 
             NavHost(navController = navController, startDestination = "home") {
                 composable("home") {
-                    HomeScreen(navController)
+                    HomeScreen(navController, tasks)
                 }
                 composable("add") {
-                    AddTaskScreen(navController)
+                    AddTaskScreen(navController) { title, desc ->
+                        tasks.add(Task(title, desc))
+                        navController.popBackStack() // go back to home
+                    }
                 }
                 composable(
                     "detail/{title}/{desc}",
@@ -39,5 +42,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-
