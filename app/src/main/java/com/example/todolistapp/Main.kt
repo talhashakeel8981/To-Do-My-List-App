@@ -39,7 +39,11 @@ import androidx.compose.material3.Icon
 import androidx.compose.ui.Alignment
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import java.util.Calendar
 
 
 //data class Task(val title: String, val description: String)
@@ -156,4 +160,24 @@ fun DetailScreen(navController: NavController, title: String?, description: Stri
             Text("Go Back")
         }
     }
+}
+
+
+@Composable
+fun DividerExample ()
+{
+    Column(modifier = Modifier.padding(vertical = 5.dp)) {
+        Text("Hello Talha ")
+        Divider(color = Color.Gray,
+            thickness = 2.dp,
+
+            )
+        Text("Hello Talha ")
+    }
+
+}
+@Preview(showBackground = true) // ✅ Fix this line
+@Composable
+fun DividerPreview() {
+    DividerExample()
 }
