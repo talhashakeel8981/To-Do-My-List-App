@@ -228,6 +228,7 @@ fun DividerExample ()
 fun DividerPreview() {
     DividerExample()
 }
+@Composable
 
 
 
