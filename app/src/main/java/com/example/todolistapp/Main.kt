@@ -1,6 +1,7 @@
 package com.example.todolistapp
 
 import android.net.Uri
+import android.widget.DatePicker
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -44,7 +45,17 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import java.util.Calendar
+import android.app.DatePickerDialog
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.filled.DateRange
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
+import java.util.*
 
 //data class Task(val title: String, val description: String)
 
@@ -117,6 +128,45 @@ fun AddTaskScreen(navController: NavController, onSave: (String, String) -> Unit
         )
         Spacer(modifier = Modifier.height(8.dp))
 
+        val context = LocalContext.current
+        val calendar = Calendar.getInstance()
+
+        var dateText by remember { mutableStateOf("") }
+
+        // Date picker dialog
+        val datePickerDialog = remember {
+            DatePickerDialog(
+                context,
+                { _: DatePicker, year: Int, month: Int, dayOfMonth: Int ->
+                    dateText = "%02d/%02d/%04d".format(dayOfMonth, month + 1, year)
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            )
+        }
+
+        OutlinedTextField(
+            value = dateText,
+            onValueChange = { dateText = it }, // Allow manual editing
+            label = { Text("Date") },
+            trailingIcon= {
+                IconButton(onClick = {
+                    datePickerDialog.show()
+                }) {
+                    Icon(
+                        imageVector = Icons.Default.DateRange,
+                        contentDescription = "Pick Date",
+                        tint = Color.Gray
+                    )
+                }
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+        )
+        Spacer(modifier = Modifier.padding(16.dp))
+
         TextField(
             value = desc,
             onValueChange = { desc = it },
@@ -137,9 +187,6 @@ fun AddTaskScreen(navController: NavController, onSave: (String, String) -> Unit
         }
     }
 }
-
-
-
 
 @Composable
 fun DetailScreen(navController: NavController, title: String?, description: String?) {
@@ -181,3 +228,7 @@ fun DividerExample ()
 fun DividerPreview() {
     DividerExample()
 }
+
+
+
+
