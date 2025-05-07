@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+<<<<<<< HEAD
     <style name="Theme.ToDoListApp" parent="android:Theme.Material.Light.NoActionBar" />
+=======
+    <style name="Theme.ToDoMyListApp" parent="android:Theme.Material.Light.NoActionBar" />
+>>>>>>> ef120524d8bfac45bde08f62da39b104bc4a8843
 </resources>

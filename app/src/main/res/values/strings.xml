@@ -1,3 +1,7 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">To Do List App</string>
+=======
+    <string name="app_name">To Do My List App</string>
+>>>>>>> ef120524d8bfac45bde08f62da39b104bc4a8843
 </resources>

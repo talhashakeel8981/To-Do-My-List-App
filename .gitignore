@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Built files
 *.class
 *.jar
@@ -16,3 +17,20 @@
 app/build/
 .gradle/
 build/
+=======
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+>>>>>>> ef120524d8bfac45bde08f62da39b104bc4a8843

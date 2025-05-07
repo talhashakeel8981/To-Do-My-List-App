@@ -5,11 +5,19 @@ plugins {
 }
 
 android {
+<<<<<<< HEAD
     namespace = "com.example.todolistapp"
     compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.todolistapp"
+=======
+    namespace = "com.example.todomylistapp"
+    compileSdk = 35
+
+    defaultConfig {
+        applicationId = "com.example.todomylistapp"
+>>>>>>> ef120524d8bfac45bde08f62da39b104bc4a8843
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -49,7 +57,12 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+<<<<<<< HEAD
     implementation(libs.androidx.navigation.runtime.android)
+=======
+    implementation(libs.androidx.navigation.common.android)
+    implementation(libs.androidx.navigation.common.ktx)
+>>>>>>> ef120524d8bfac45bde08f62da39b104bc4a8843
     implementation(libs.androidx.navigation.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -58,6 +71,9 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+<<<<<<< HEAD
 //    implementation "androidx.navigation:navigation-compose:2.7.7" // or latest version
 
+=======
+>>>>>>> ef120524d8bfac45bde08f62da39b104bc4a8843
 }

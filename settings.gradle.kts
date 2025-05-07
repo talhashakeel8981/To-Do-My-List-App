@@ -19,6 +19,10 @@ dependencyResolutionManagement {
     }
 }
 
+<<<<<<< HEAD
 rootProject.name = "To Do List App"
+=======
+rootProject.name = "To Do My List App"
+>>>>>>> ef120524d8bfac45bde08f62da39b104bc4a8843
 include(":app")
  
